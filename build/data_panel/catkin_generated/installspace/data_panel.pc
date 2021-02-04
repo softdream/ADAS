@@ -1,0 +1,8 @@
+prefix=/home/zxy/ADASWork/catkin_ws/install
+
+Name: data_panel
+Description: Description of data_panel
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -ldata_panel
+Requires: roscpp rviz std_msgs

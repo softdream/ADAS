@@ -1,0 +1,2 @@
+image_render:j2_mono:mobieye:mono_visualization
+-DCATKIN_DEVEL_PREFIX=/home/zxy/ADASWork/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/zxy/ADASWork/catkin_ws/install -G Unix Makefiles

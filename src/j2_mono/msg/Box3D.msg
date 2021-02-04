@@ -1,0 +1,9 @@
+Point lower_lt
+Point lower_lb
+Point lower_rb
+Point lower_rt
+Point upper_lt
+Point upper_lb
+Point upper_rb
+Point upper_rt
+float32 conf

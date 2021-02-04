@@ -1,0 +1,2 @@
+set(j2_mono_MESSAGE_FILES "msg/Point.msg;msg/PointI.msg;msg/Polygon.msg;msg/Rect.msg;msg/OBBox2D.msg;msg/Box3D.msg;msg/Image.msg;msg/ImageFail.msg;msg/Velocity.msg;msg/Line.msg;msg/Lines.msg;msg/WorldSpaceInfo.msg;msg/ImageSpaceInfo.msg;msg/canFrame.msg;msg/odometryFrame.msg;msg/Obstacle.msg;msg/Obstacles.msg;msg/FreeSpacePoints.msg;msg/StructurePerception.msg;msg/Data.msg;msg/Meta.msg")
+set(j2_mono_SERVICE_FILES "")

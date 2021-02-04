@@ -1,0 +1,11 @@
+int32 version
+int32 frame_id
+Image[] image
+int32 data_descriptor
+#CameraParam camera
+#CameraParam camera_default
+#CameraMatrix camera_matrix
+#SensorFrame sensor
+#MotionFrame montion
+odometryFrame odometry
+StructurePerception structure_perception

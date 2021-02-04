@@ -1,0 +1,8 @@
+prefix=/home/zxy/ADASWork/catkin_ws/devel
+
+Name: j2_mono
+Description: Description of j2_mono
+Version: 0.0.0
+Cflags: -I/home/zxy/ADASWork/catkin_ws/devel/include -I/home/zxy/ADASWork/catkin_ws/src/j2_mono/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs message_runtime sensor_msgs image_transport cv_bridge

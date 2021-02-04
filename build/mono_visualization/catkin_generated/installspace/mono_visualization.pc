@@ -1,0 +1,8 @@
+prefix=/home/zxy/ADASWork/catkin_ws/install
+
+Name: mono_visualization
+Description: Description of mono_visualization
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lmono_visualization
+Requires: roscpp std_msgs sensor_msgs image_transport cv_bridge visualization_msgs j2_mono

@@ -1,0 +1,74 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto2";
+package MetaData;
+// [END declaration]
+
+import "common.proto";
+import "can.proto";
+import "sensor.proto";
+
+// [START messages]
+
+message Box3DResult {
+  required int32 id = 1;
+  required CommonProto.Box3D box = 2;
+}
+
+message SensorFrame {
+  repeated CANProto.CANFrameRaw can_frames_raw = 1;
+  optional CANProto.CANFrame can_frames = 2;
+
+  repeated SensorProto.IMUFrame imu_frames_raw = 11; // raw IMU information  
+  optional SensorProto.IMUFrame imu_frame = 12;      // processed IMU information
+  optional SensorProto.IMUFrame imu_offset = 13;
+ 
+  repeated SensorProto.GPSFrameRaw gps_frames_raw = 21;
+  optional SensorProto.GPSFrame gps_frame = 22;
+}
+
+message StructurePerception {
+  repeated CommonProto.ObstacleRaws obstacles_raws = 1;   // raw detection bbox(no undistortion applied)
+  repeated CommonProto.Obstacles obstacles = 10;          // tracked obstacles with image(undistortion applied to bbox) and vcs info
+  repeated CommonProto.Lines lines = 11;      // structured lane lines in vcs coordinate
+  
+  repeated CommonProto.Image parsing = 20;    // including multi label image segmentation, and lane segmentation
+  repeated CommonProto.Image depth = 21;      // exist if depth model is enabled; matrix 1.0 exprimental version
+  
+  repeated CommonProto.FreeSpacePoints scan_pts = 30;
+  repeated CommonProto.ParsingSetting parsing_settings = 40;
+}
+
+message Data {
+  required int32 version = 1;
+  required int32 frame_id = 2;
+  repeated CommonProto.Image image = 3;
+  repeated CommonProto.DataDescriptor data_descriptor = 4;
+  
+  repeated CommonProto.CameraParam camera = 10;           // runtime camera params
+  repeated CommonProto.CameraParam camera_default = 11;   // default camera param in camera_x.json file
+  repeated CommonProto.CameraMatrix camera_matrix = 12;   // run time camera matrix
+
+  optional SensorFrame sensor = 20;
+  optional CommonProto.MotionFrame motion = 21;       // vehicle motion, deprecated
+  optional CommonProto.OdometryFrame odometry = 22;   // exist if enable_odometry in engine.json is enabled
+  
+  optional StructurePerception structure_perception = 30;
+
+  /*
+  Due to the dynamic pitch correction of lane module, the camera matrixes of lane
+  are different with default camera matrixes and different for each frame.
+  To get lane coordinate system transformation relationship,
+  Please use these lane camera matrixes
+  */
+  repeated CommonProto.CameraMatrix lane_camera_matrix = 160;
+}
+
+// [END messages]

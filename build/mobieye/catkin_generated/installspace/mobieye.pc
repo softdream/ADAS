@@ -1,0 +1,8 @@
+prefix=/home/zxy/ADASWork/catkin_ws/install
+
+Name: mobieye
+Description: Description of mobieye
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lmobieye
+Requires: roscpp sensor_msgs std_msgs visualization_msgs
